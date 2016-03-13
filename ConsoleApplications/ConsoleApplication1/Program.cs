@@ -11,7 +11,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-			Regex reg = new Regex(@"^[a-z][a-z\d]{1,9}$");
+			Regex reg = new Regex(@"^[a-z][a-z\d]{1,9}$", RegexOptions.IgnoreCase);
 
 			while (true)
 			{
