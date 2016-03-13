@@ -11,9 +11,9 @@ namespace ConsoleApplication2
     {
         static void Main(string[] args)
         {
-			Regex reg = new Regex(@"\b\B*\w*\d*\S*металл\B*\w*\d*\S*\b", RegexOptions.IgnoreCase);
+			Regex reg = new Regex(@"\b\B*\w*\d*-*металл-*\B*\w*\d*\b", RegexOptions.IgnoreCase);
 
-			String text = "металл, ультарметаллический объект, МегаМеталл!, ути-металлик, МЕТАААЛ!, МеТаЛл, Металл-неудачник, дрова+бумага!=металл, ##металл##, .Металл/";
+			String text = "металл, ультарметаллический объект, МегаМеталл!, ути-металлик, МЕТАААЛ!, МеТаЛл, Металл-неудачник, дрова+бумага!=металл, .Металл/";
 
 			foreach (Match match in reg.Matches(text))
 			{
