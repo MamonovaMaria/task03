@@ -14,85 +14,69 @@ namespace ConsoleApplication3
 			public int y;
 			public int z;
 
-			public Point(int X, int Y, int Z)
+			public Point(int x, int y, int z)
 			{
-				x = X;
-				y = Y;
-				z = Z;
+				this.x = x;
+				this.y = y;
+				this.z = z;
 			}
 
 			public static Point operator +(Point point1, Point point2)
 			{
-				Point resultPoint;
-				resultPoint.x = point1.x + point2.x;
-				resultPoint.y = point1.y + point2.y;
-				resultPoint.z = point1.z + point2.z;
-				return resultPoint;
+				return new Point(point1.x + point2.x, point1.y + point2.y, point1.z + point2.z);
 			}
+
 			public static Point operator -(Point point1, Point point2)
 			{
-				Point resultPoint;
-				resultPoint.x = point1.x - point2.x;
-				resultPoint.y = point1.y - point2.y;
-				resultPoint.z = point1.z - point2.z;
-				return resultPoint;
+				return new Point(point1.x - point2.x, point1.y - point2.y, point1.z - point2.z);
 			}
 
 		}
 
         static void Main(string[] args)
         {
-			Point point1;
-			Point point2;
-			int X1, X2, Y1, Y2, Z1, Z2;
+			Console.WriteLine("Enter coordinates of the point1 via Enter");
+			Point point1 = CreatPoint();
 
-			Console.WriteLine("Enter coordinates of the point1");
-			do
-			{
-				try
-				{
-					X1 = Convert.ToInt32(Console.ReadLine());
-					Y1 = Convert.ToInt32(Console.ReadLine());
-					Z1 = Convert.ToInt32(Console.ReadLine());
+			Console.WriteLine("Enter coordinates of the point2 via Enter");
+			Point point2 = CreatPoint();
 
-					break;
-				}
-				catch (System.FormatException)
-				{
-					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try enter point again");
-				}
-			}
-			while (true);
-			point1 = new Point(X1, Y1, Z1);
+			Console.Write("Sum of two points is ");
+			Print(point1 + point2);
 
-			Console.WriteLine("Enter coordinates of the point2");
-			do
-			{
-				try
-				{
-					X2 = Convert.ToInt32(Console.ReadLine());
-					Y2 = Convert.ToInt32(Console.ReadLine());
-					Z2 = Convert.ToInt32(Console.ReadLine());
-
-					break;
-				}
-				catch (System.FormatException)
-				{
-					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try enter point again");
-				}
-			}
-			while (true);
-			point2 = new Point(X2, Y2, Z2);
-
-			Point resultPoint = point1 + point2;
-			Print(resultPoint);
+			Console.Write("Difference of two points is ");
+			Print(point1 - point2);
 
 			Console.ReadKey();
 		}
 
 		static void Print(Point p)
 		{
-			Console.WriteLine("Point is ({0}; {1}; {2})", p.x, p.y, p.z);
+			Console.WriteLine(" ({0}; {1}; {2})", p.x, p.y, p.z);
 		}
+
+		static Point CreatPoint()
+		{
+			int x, y, z;
+			do
+			{
+				try
+				{
+					x = Convert.ToInt32(Console.ReadLine());
+					y = Convert.ToInt32(Console.ReadLine());
+					z = Convert.ToInt32(Console.ReadLine());
+
+					break;
+				}
+				catch (System.FormatException)
+				{
+					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try enter point again");
+				}
+			}
+			while (true);
+			return new Point(x, y, z);
+
+		}
+
     }
 }

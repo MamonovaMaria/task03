@@ -13,7 +13,7 @@ namespace ConsoleApplication2
         {
 			Regex reg = new Regex(@"\b\B*\w*\d*\S*металл\B*\w*\d*\S*\b", RegexOptions.IgnoreCase);
 
-			String text = "металл, ультарметаллический, МегаМеталл!, ути-металлик, МЕТАААЛ!, МеТаЛл, Металл-неудачник";
+			String text = "металл, ультарметаллический объект, МегаМеталл!, ути-металлик, МЕТАААЛ!, МеТаЛл, Металл-неудачник, дрова+бумага!=металл, ##металл##, .Металл/";
 
 			foreach (Match match in reg.Matches(text))
 			{
