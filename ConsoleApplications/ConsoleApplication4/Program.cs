@@ -21,16 +21,15 @@ namespace ConsoleApplication4
 		{
 			while (true)
 			{
-				try
+				Console.WriteLine("Enter int number");
+				int num;
+				if (Int32.TryParse(Console.ReadLine(), out num))
 				{
-					Console.WriteLine("Enter int number");
-					Console.WriteLine("absolute value of int number: {0}", GetAbs(Convert.ToInt32(Console.ReadLine())));
+					Console.WriteLine("absolute value of int number: {0}", GetAbs(num));
 					break;
 				}
-				catch (System.FormatException)
-				{
-					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try again");
-				}
+				else
+					Console.WriteLine("ERROR: You have entered a symbol or violated the border values. Try again");
 			}
 			Console.ReadKey();
 		}
@@ -39,16 +38,15 @@ namespace ConsoleApplication4
 		{
 			while (true)
 			{
-				try
+				Console.WriteLine("Enter double number");
+				double num;
+				if(Double.TryParse(Console.ReadLine(), out num))
 				{
-					Console.WriteLine("Enter double number");
-					Console.WriteLine("absolute value of double number: {0}", GetAbs(Convert.ToDouble(Console.ReadLine())));
+					Console.WriteLine("absolute value of double number: {0}", GetAbs(num));
 					break;
 				}
-				catch (System.FormatException)
-				{
-					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try again");
-				}
+				else
+					Console.WriteLine("ERROR: You have entered a symbol or violated the border values. Try again");
 			}
 			Console.ReadKey();
 		}
@@ -57,16 +55,15 @@ namespace ConsoleApplication4
 		{
 			while (true)
 			{
-				try
+				Console.WriteLine("Enter long number");
+				long num;
+				if(Int64.TryParse(Console.ReadLine(), out num))
 				{
-					Console.WriteLine("Enter long number");
-					Console.WriteLine("absolute value of long number: {0}", GetAbs(Convert.ToInt64(Console.ReadLine())));
+					Console.WriteLine("absolute value of long number: {0}", GetAbs(num));
 					break;
 				}
-				catch (System.FormatException)
-				{
-					Console.WriteLine("ERROR: You have entered a symbol, not a number. Try again");
-				}
+				else
+					Console.WriteLine("ERROR: You have entered a symbol or violated the border values. Try again");
 			}
 			Console.ReadKey();
 		}
@@ -76,21 +73,25 @@ namespace ConsoleApplication4
 		{
 			if (num < 0)
 				return -num;
-			else return num;
+			else 
+				return num;
 		}
 
 		static public double GetAbs(double num)
 		{
 			if (num < 0)
 				return -num;
-			else return num;
+			else 
+				return num;
 		}
 
 		static public long GetAbs(long num)
 		{
 			if (num < 0)
 				return -num;
-			else return num;
+			else 
+				return num;
 		}
-    }
+	}
 }
+
